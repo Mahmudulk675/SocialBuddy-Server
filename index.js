@@ -10,6 +10,8 @@ const path = require("path");
 const userRoute = require("./Routes/users");
 const authRoute = require("./Routes/auth");
 const postRoute = require("./Routes/posts");
+const conversationRoute = require("./Routes/conversation");
+const messageRoute = require("./Routes/message");
 
 const port = process.env.PORT || 8000;
 
@@ -57,6 +59,8 @@ app.post("/api/upload", upload.single("file"), (req, res) => {
 app.use("/api/users", userRoute);
 app.use("/api/auth", authRoute);
 app.use("/api/posts", postRoute);
+app.use("/api/conversations", conversationRoute);
+app.use("/api/messages", messageRoute);
 
 app.get("/", (req, res) => {
   res.send("Homepage");
